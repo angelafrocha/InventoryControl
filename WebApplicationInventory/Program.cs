@@ -1,4 +1,6 @@
 
+using WebApplicationInventory.Persistence;
+
 namespace WebApplicationInventory
 {
     public class Program
@@ -8,6 +10,7 @@ namespace WebApplicationInventory
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddSingleton<InventoryDbContext>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
