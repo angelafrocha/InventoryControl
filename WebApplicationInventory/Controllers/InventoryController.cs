@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationInventory.Entity;
 using WebApplicationInventory.Persistence;
@@ -16,7 +15,6 @@ namespace WebApplicationInventory.Controllers
         {
             _context = context;
         }
-
 
         [HttpGet]
         public IActionResult GetAll()
@@ -36,7 +34,6 @@ namespace WebApplicationInventory.Controllers
                 return NotFound();
             }
         }
-
 
         [HttpPost("RegisterEntry")]
         public IActionResult Post(Product product)
@@ -83,5 +80,3 @@ namespace WebApplicationInventory.Controllers
         //    return Ok($"Discarded expired products.");
         //}
 
-    }
-}
