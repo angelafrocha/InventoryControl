@@ -62,13 +62,13 @@ namespace WebApplicationInventory.Controllers
             {
                 product.Quantity -= quantity;
 
-                return Ok($"Withdrawal of {quantity} units of product {product.Name} completed.");
-            }
-            else
-            {
-                return BadRequest("Insufficient stock to fulfill the request.");
-            }
-        }
+        //        return Ok($"Withdrawal of {quantity} units of product {product.Name} completed.");
+        //    }
+        //    else
+        //    {
+        //        return BadRequest("Insufficient stock to fulfill the request.");
+        //    }
+        //}
 
         //[HttpDelete("DiscardExpiredProducts")] 
         //public IActionResult DiscardExpiredProducts()
@@ -84,9 +84,6 @@ namespace WebApplicationInventory.Controllers
 
         //    return Ok($"Discarded expired products.");
         //}
-
-    }
-
 
     }
 }
