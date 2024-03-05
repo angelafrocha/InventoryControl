@@ -35,8 +35,6 @@ namespace WebApplicationInventory.Controllers
             {
                 return NotFound();
             }
-
-            return Ok(product);
         }
 
 
