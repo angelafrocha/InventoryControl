@@ -49,45 +49,40 @@ namespace WebApplicationInventory.Controllers
 
         }
 
-        //[HttpPut("RegisterDeparture")] 
-        //public IActionResult Update(Guid id, int quantity, int? batchNumber)
-        //{
-        //    var product = _context.Products.SingleOrDefault(p => p.Id == id);
+        [HttpPut("Id")]
+        public IActionResult Update(Guid id, int quantity)
+        {
+            var product = _context.Products.SingleOrDefault(p => p.Id == id);
 
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
+            if (product == null)
+            {
+                return NotFound();
+            }
+            else if (product != null && product.Quantity >= quantity)
+            {
+                product.Quantity -= quantity;
 
-        //    if (product != null && product.Quantity >= quantity)
-        //    {
-        //        product.Quantity -= quantity;
-          
-        //        return Ok($"Withdrawal of {quantity} units of product {product.Name} completed.");
-        //    }
-        //    else
-        //    {
-        //        return BadRequest("Insufficient stock to fulfill the request.");
-        //    }
+                return Ok($"Withdrawal of {quantity} units of product {product.Name} completed.");
+            }
+            else
+            {
+                return BadRequest("Insufficient stock to fulfill the request.");
+            }
+        }
 
-
-
-        //}
-
-        //[HttpDelete] ("DiscardExpiredProducts")
+        //[HttpDelete("DiscardExpiredProducts")] 
         //public IActionResult DiscardExpiredProducts()
         //{
-        //    var expiredProducts = _context.Products.Where(p => p.ExpirationDate < DateTime.Now).ToList();
+        //    var product = _context.Products.Where(p => p.ExpirationDate < DateTime.Now);
 
-        //    if (expiredProducts.Count == 0)
+        //    if (products.Count == 0)
         //    {
         //        return NotFound("No expired products found.");
         //    }
 
-        //    _context.Products.RemoveRange(expiredProducts);
-        //    _context.SaveChanges();
+        //    product.Delete();
 
-        //    return Ok($"Discarded {expiredProducts.Count} expired products.");
+        //    return Ok($"Discarded expired products.");
         //}
 
     }
